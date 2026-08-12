@@ -1,0 +1,26 @@
+CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=1 --master_port 29501 finetune_audio.py \
+    --model_name_or_path "/root/autodl-tmp/qwen_audio_for_add/models/Qwen-Audio-Chat" \
+    --data_path "/root/autodl-tmp/qwen_audio_for_add/data/asv_fake_audio.jsonl" \
+    --bf16 True \
+    --output_dir "/root/autodl-tmp/qwen_audio_for_add/output/temp/" \
+    --dataloader_num_workers 4 \
+    --num_train_epochs 5 \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 1 \
+    --gradient_accumulation_steps 1 \
+    --evaluation_strategy "no" \
+    --save_strategy "epoch" \
+    --save_total_limit 5 \
+    --learning_rate 4e-5 \
+    --weight_decay 0.1 \
+    --adam_beta1 0.9 \
+    --adam_beta2 0.95 \
+    --warmup_ratio 0.01 \
+    --lr_scheduler_type "cosine" \
+    --logging_steps 1 \
+    --model_max_length 512 \
+    --gradient_checkpointing true \
+    --lazy_preprocess True \
+    --use_lora True \
+    --q_lora False \
+    --deepspeed "/root/autodl-tmp/qwen_audio_for_add/ds_config_zero2.json"

@@ -1,0 +1,379 @@
+nohup: ignoring input
+设置成功!
+注意：
+1. 仅限学术用途和加速访问github/huggingface，不承诺稳定性
+2. 开启加速后对访问其他资源如pip源等会*更慢*
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Downloading 'data/test-00000-of-00001.parquet' to '/root/autodl-tmp/qwen_audio_for_add/data/ASVspoof_2019_LA/.cache/huggingface/download/data/iln7FAK8ScOKT0OL8tHV8680tg8=.8159935a94426bc36308278b23cecd8c4ca2a15b778a1087a4a0441d079c86af.incomplete' (resume from 2385051648/4381501164)
+Downloading 'data/train-00000-of-00001.parquet' to '/root/autodl-tmp/qwen_audio_for_add/data/ASVspoof_2019_LA/.cache/huggingface/download/data/jhdVX7QxSai5xYQbu6FpvD3SSxM=.b4eea1063bbcfa0c1cef1b69a96ad8b787c32f662005562b899cd4b461739619.incomplete' (resume from 1200259072/1586086073)
+Download complete. Moving file to /root/autodl-tmp/qwen_audio_for_add/data/ASVspoof_2019_LA/data/train-00000-of-00001.parquet
+Fetching 5 files:  40%|████      | 2/5 [15:21<23:01, 460.56s/it]
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 712, in _error_catcher
+    yield
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 833, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(229938148 bytes read, 1766511368 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 934, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 905, in read
+    data = self._raw_read(amt)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 811, in _raw_read
+    with self._error_catcher():
+  File "/root/miniconda3/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 729, in _error_catcher
+    raise ProtocolError(f"Connection broken: {e!r}", e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(229938148 bytes read, 1766511368 more expected)', IncompleteRead(229938148 bytes read, 1766511368 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/hf", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/hf.py", line 59, in main
+    service.run()
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/download.py", line 136, in run
+    print(self._download())  # Print path to downloaded files
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/download.py", line 169, in _download
+    return snapshot_download(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 332, in snapshot_download
+    thread_map(
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/contrib/concurrent.py", line 69, in thread_map
+    return _executor_map(ThreadPoolExecutor, fn, *iterables, **tqdm_kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/contrib/concurrent.py", line 51, in _executor_map
+    return list(tqdm_class(ex.map(fn, *iterables, chunksize=chunksize), **kwargs))
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/std.py", line 1182, in __iter__
+    for obj in iterable:
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 621, in result_iterator
+    yield _result_or_cancel(fs.pop())
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 319, in _result_or_cancel
+    return fut.result(timeout)
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 458, in result
+    return self.__get_result()
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 306, in _inner_hf_hub_download
+    return hf_hub_download(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 987, in hf_hub_download
+    return _hf_hub_download_to_local_dir(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1297, in _hf_hub_download_to_local_dir
+    _download_to_tmp_and_move(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1735, in _download_to_tmp_and_move
+    http_get(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 493, in http_get
+    for chunk in r.iter_content(chunk_size=constants.DOWNLOAD_CHUNK_SIZE):
+  File "/root/miniconda3/lib/python3.10/site-packages/requests/models.py", line 818, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(229938148 bytes read, 1766511368 more expected)', IncompleteRead(229938148 bytes read, 1766511368 more expected))
+下载失败，10秒后自动重试...
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Downloading 'data/test-00000-of-00001.parquet' to '/root/autodl-tmp/qwen_audio_for_add/data/ASVspoof_2019_LA/.cache/huggingface/download/data/iln7FAK8ScOKT0OL8tHV8680tg8=.8159935a94426bc36308278b23cecd8c4ca2a15b778a1087a4a0441d079c86af.incomplete' (resume from 2605252608/4381501164)
+Fetching 5 files:  40%|████      | 2/5 [06:33<09:49, 196.61s/it]
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 712, in _error_catcher
+    yield
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 833, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(80147608 bytes read, 1696100948 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 934, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 905, in read
+    data = self._raw_read(amt)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 811, in _raw_read
+    with self._error_catcher():
+  File "/root/miniconda3/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 729, in _error_catcher
+    raise ProtocolError(f"Connection broken: {e!r}", e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(80147608 bytes read, 1696100948 more expected)', IncompleteRead(80147608 bytes read, 1696100948 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/hf", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/hf.py", line 59, in main
+    service.run()
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/download.py", line 136, in run
+    print(self._download())  # Print path to downloaded files
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/download.py", line 169, in _download
+    return snapshot_download(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 332, in snapshot_download
+    thread_map(
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/contrib/concurrent.py", line 69, in thread_map
+    return _executor_map(ThreadPoolExecutor, fn, *iterables, **tqdm_kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/contrib/concurrent.py", line 51, in _executor_map
+    return list(tqdm_class(ex.map(fn, *iterables, chunksize=chunksize), **kwargs))
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/std.py", line 1182, in __iter__
+    for obj in iterable:
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 621, in result_iterator
+    yield _result_or_cancel(fs.pop())
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 319, in _result_or_cancel
+    return fut.result(timeout)
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 458, in result
+    return self.__get_result()
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 306, in _inner_hf_hub_download
+    return hf_hub_download(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 987, in hf_hub_download
+    return _hf_hub_download_to_local_dir(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1297, in _hf_hub_download_to_local_dir
+    _download_to_tmp_and_move(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1735, in _download_to_tmp_and_move
+    http_get(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 493, in http_get
+    for chunk in r.iter_content(chunk_size=constants.DOWNLOAD_CHUNK_SIZE):
+  File "/root/miniconda3/lib/python3.10/site-packages/requests/models.py", line 818, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(80147608 bytes read, 1696100948 more expected)', IncompleteRead(80147608 bytes read, 1696100948 more expected))
+下载失败，10秒后自动重试...
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Downloading 'data/test-00000-of-00001.parquet' to '/root/autodl-tmp/qwen_audio_for_add/data/ASVspoof_2019_LA/.cache/huggingface/download/data/iln7FAK8ScOKT0OL8tHV8680tg8=.8159935a94426bc36308278b23cecd8c4ca2a15b778a1087a4a0441d079c86af.incomplete' (resume from 2678652928/4381501164)
+Fetching 5 files:  40%|████      | 2/5 [12:52<19:18, 386.05s/it]
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 712, in _error_catcher
+    yield
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 833, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(164605770 bytes read, 1538242466 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 934, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 905, in read
+    data = self._raw_read(amt)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 811, in _raw_read
+    with self._error_catcher():
+  File "/root/miniconda3/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 729, in _error_catcher
+    raise ProtocolError(f"Connection broken: {e!r}", e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(164605770 bytes read, 1538242466 more expected)', IncompleteRead(164605770 bytes read, 1538242466 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/hf", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/hf.py", line 59, in main
+    service.run()
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/download.py", line 136, in run
+    print(self._download())  # Print path to downloaded files
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/download.py", line 169, in _download
+    return snapshot_download(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 332, in snapshot_download
+    thread_map(
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/contrib/concurrent.py", line 69, in thread_map
+    return _executor_map(ThreadPoolExecutor, fn, *iterables, **tqdm_kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/contrib/concurrent.py", line 51, in _executor_map
+    return list(tqdm_class(ex.map(fn, *iterables, chunksize=chunksize), **kwargs))
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/std.py", line 1182, in __iter__
+    for obj in iterable:
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 621, in result_iterator
+    yield _result_or_cancel(fs.pop())
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 319, in _result_or_cancel
+    return fut.result(timeout)
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 458, in result
+    return self.__get_result()
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 306, in _inner_hf_hub_download
+    return hf_hub_download(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 987, in hf_hub_download
+    return _hf_hub_download_to_local_dir(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1297, in _hf_hub_download_to_local_dir
+    _download_to_tmp_and_move(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1735, in _download_to_tmp_and_move
+    http_get(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 493, in http_get
+    for chunk in r.iter_content(chunk_size=constants.DOWNLOAD_CHUNK_SIZE):
+  File "/root/miniconda3/lib/python3.10/site-packages/requests/models.py", line 818, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(164605770 bytes read, 1538242466 more expected)', IncompleteRead(164605770 bytes read, 1538242466 more expected))
+下载失败，10秒后自动重试...
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Downloading 'data/test-00000-of-00001.parquet' to '/root/autodl-tmp/qwen_audio_for_add/data/ASVspoof_2019_LA/.cache/huggingface/download/data/iln7FAK8ScOKT0OL8tHV8680tg8=.8159935a94426bc36308278b23cecd8c4ca2a15b778a1087a4a0441d079c86af.incomplete' (resume from 2835939328/4381501164)
+Fetching 5 files:  40%|████      | 2/5 [10:50<16:15, 325.12s/it]
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 712, in _error_catcher
+    yield
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 833, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(39327537 bytes read, 1506234299 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 934, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 905, in read
+    data = self._raw_read(amt)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 811, in _raw_read
+    with self._error_catcher():
+  File "/root/miniconda3/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 729, in _error_catcher
+    raise ProtocolError(f"Connection broken: {e!r}", e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(39327537 bytes read, 1506234299 more expected)', IncompleteRead(39327537 bytes read, 1506234299 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/hf", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/hf.py", line 59, in main
+    service.run()
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/download.py", line 136, in run
+    print(self._download())  # Print path to downloaded files
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/download.py", line 169, in _download
+    return snapshot_download(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 332, in snapshot_download
+    thread_map(
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/contrib/concurrent.py", line 69, in thread_map
+    return _executor_map(ThreadPoolExecutor, fn, *iterables, **tqdm_kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/contrib/concurrent.py", line 51, in _executor_map
+    return list(tqdm_class(ex.map(fn, *iterables, chunksize=chunksize), **kwargs))
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/std.py", line 1182, in __iter__
+    for obj in iterable:
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 621, in result_iterator
+    yield _result_or_cancel(fs.pop())
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 319, in _result_or_cancel
+    return fut.result(timeout)
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 458, in result
+    return self.__get_result()
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 306, in _inner_hf_hub_download
+    return hf_hub_download(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 987, in hf_hub_download
+    return _hf_hub_download_to_local_dir(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1297, in _hf_hub_download_to_local_dir
+    _download_to_tmp_and_move(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1735, in _download_to_tmp_and_move
+    http_get(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 493, in http_get
+    for chunk in r.iter_content(chunk_size=constants.DOWNLOAD_CHUNK_SIZE):
+  File "/root/miniconda3/lib/python3.10/site-packages/requests/models.py", line 818, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(39327537 bytes read, 1506234299 more expected)', IncompleteRead(39327537 bytes read, 1506234299 more expected))
+下载失败，10秒后自动重试...
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Downloading 'data/test-00000-of-00001.parquet' to '/root/autodl-tmp/qwen_audio_for_add/data/ASVspoof_2019_LA/.cache/huggingface/download/data/iln7FAK8ScOKT0OL8tHV8680tg8=.8159935a94426bc36308278b23cecd8c4ca2a15b778a1087a4a0441d079c86af.incomplete' (resume from 2867396608/4381501164)
+Fetching 5 files:  40%|████      | 2/5 [16:41<25:02, 500.86s/it]
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 712, in _error_catcher
+    yield
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 833, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(353361228 bytes read, 1160743328 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 934, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 905, in read
+    data = self._raw_read(amt)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 811, in _raw_read
+    with self._error_catcher():
+  File "/root/miniconda3/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/root/miniconda3/lib/python3.10/site-packages/urllib3/response.py", line 729, in _error_catcher
+    raise ProtocolError(f"Connection broken: {e!r}", e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(353361228 bytes read, 1160743328 more expected)', IncompleteRead(353361228 bytes read, 1160743328 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/hf", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/hf.py", line 59, in main
+    service.run()
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/download.py", line 136, in run
+    print(self._download())  # Print path to downloaded files
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/cli/download.py", line 169, in _download
+    return snapshot_download(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 332, in snapshot_download
+    thread_map(
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/contrib/concurrent.py", line 69, in thread_map
+    return _executor_map(ThreadPoolExecutor, fn, *iterables, **tqdm_kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/contrib/concurrent.py", line 51, in _executor_map
+    return list(tqdm_class(ex.map(fn, *iterables, chunksize=chunksize), **kwargs))
+  File "/root/miniconda3/lib/python3.10/site-packages/tqdm/std.py", line 1182, in __iter__
+    for obj in iterable:
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 621, in result_iterator
+    yield _result_or_cancel(fs.pop())
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 319, in _result_or_cancel
+    return fut.result(timeout)
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 458, in result
+    return self.__get_result()
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/root/miniconda3/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 306, in _inner_hf_hub_download
+    return hf_hub_download(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 987, in hf_hub_download
+    return _hf_hub_download_to_local_dir(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1297, in _hf_hub_download_to_local_dir
+    _download_to_tmp_and_move(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1735, in _download_to_tmp_and_move
+    http_get(
+  File "/root/miniconda3/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 493, in http_get
+    for chunk in r.iter_content(chunk_size=constants.DOWNLOAD_CHUNK_SIZE):
+  File "/root/miniconda3/lib/python3.10/site-packages/requests/models.py", line 818, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(353361228 bytes read, 1160743328 more expected)', IncompleteRead(353361228 bytes read, 1160743328 more expected))
+下载失败，10秒后自动重试...
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Downloading 'data/test-00000-of-00001.parquet' to '/root/autodl-tmp/qwen_audio_for_add/data/ASVspoof_2019_LA/.cache/huggingface/download/data/iln7FAK8ScOKT0OL8tHV8680tg8=.8159935a94426bc36308278b23cecd8c4ca2a15b778a1087a4a0441d079c86af.incomplete' (resume from 3213426688/4381501164)
+Terminated
+下载失败，10秒后自动重试...
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Downloading 'data/test-00000-of-00001.parquet' to '/root/autodl-tmp/qwen_audio_for_add/data/ASVspoof_2019_LA/.cache/huggingface/download/data/iln7FAK8ScOKT0OL8tHV8680tg8=.8159935a94426bc36308278b23cecd8c4ca2a15b778a1087a4a0441d079c86af.incomplete' (resume from 3748200448/4381501164)
+Download complete. Moving file to /root/autodl-tmp/qwen_audio_for_add/data/ASVspoof_2019_LA/data/test-00000-of-00001.parquet
+Fetching 5 files:  60%|██████    | 3/5 [23:16<15:30, 465.39s/it]Fetching 5 files: 100%|██████████| 5/5 [23:16<00:00, 279.24s/it]
+/root/autodl-tmp/qwen_audio_for_add/data/ASVspoof_2019_LA
